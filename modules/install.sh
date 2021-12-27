@@ -3,23 +3,17 @@ local package="$1"; shift
 install()
 {
     local package="$1"; shift
-    local package_hub="https://github.com/Lintine/paque-packages"
+    local package_hub="https://github.com/Lintine/paque-packages/raw/main"
     local package_dir="$HOME/.paque/packages"
-    local package_url="$package_hub/$package.tar.gz"
+    local package_url="$package_hub/$package.tar"
     # download package from github to package dir if not exists and package url is valid
     if [ ! -d "$package_dir/$package" ] && [ -n "$package_url" ]; then
-        echo "Downloading $package..."
-        mkdir -p "$package_dir"
-        curl -sL "$package_url" | tar -xz -C "$package_dir"
+        echo "Downloading $package to $package_dir"
+        mkdir -p "$package_dir/$package"
+        curl -sL "$package_url" | tar -x -C "$package_dir/$package"
     else
-        if [ ! -d "$package_dir/$package" ]; then
-            echo "Package $package not found"
-            return 1
-        fi
-        if [ -n "$package_url" ]; then
-            echo "Package $package does not exist on the package hub"
-            return 1
-        fi
+        echo "Package $package already exists or package url is invalid"
+        return 1
     fi
     # getting dependencies
     local package_deps="$package_dir/$package/dependencies.txt"
