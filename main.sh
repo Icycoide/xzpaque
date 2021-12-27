@@ -9,7 +9,7 @@ xzpaque()
     local args="$@"
     
     case "$cmd" in
-        install)
+        Pi)
             $install $args
         ;;
         *)
