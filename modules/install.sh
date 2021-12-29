@@ -10,7 +10,7 @@ install()
     if [ ! -d "$package_dir/$package" ] && [ -n "$package_url" ]; then
         echo "Downloading $package to $package_dir"
         mkdir -p "$package_dir/$package"
-        curl -sL "$package_url" | tar -x -C "$package_dir/$package"
+        curl -sL "$package_url" | tar -x -z -C "$package_dir/$package"
     else
         echo "Package $package already exists or package url is invalid"
         return 1
