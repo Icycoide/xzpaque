@@ -5,7 +5,7 @@ install()
     local package="$1"; shift
     local package_hub="https://github.com/Lintine/paque-packages/raw/main"
     local package_dir="$HOME/.paque/packages"
-    local package_url="$package_hub/$package.tar"
+    local package_url="$package_hub/$package.tar.gz"
     # download package from github to package dir if not exists and package url is valid
     if [ ! -d "$package_dir/$package" ] && [ -n "$package_url" ]; then
         echo "Downloading $package to $package_dir"
@@ -27,7 +27,7 @@ install()
     echo "Installing $package..."
     local package_install="$package_dir/$package/install.sh"
     if [ -f "$package_install" ]; then
-        source "$package_install" "$@"
+        echo 'source "'"$package_install"'" "'"$@"'"' >> ~/.bashrc && source ~/.bashrc
     fi
 }
 install "$package" "$@"
