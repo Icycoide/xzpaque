@@ -12,7 +12,7 @@ xzpaque()
         Pi)
             $install $args
         ;;
-        load)
+        Pl)
             $load
         ;;
         *)
