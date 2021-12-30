@@ -4,13 +4,16 @@
 xzpaque()
 {
     local install="source modules/install.sh"
+    local load="source modules/load.sh"
     local cmd="$1"; shift
     # set args to command args past the first
     local args="$@"
-    
     case "$cmd" in
         Pi)
             $install $args
+        ;;
+        load)
+            $load
         ;;
         *)
             echo "Unknown command: $cmd"

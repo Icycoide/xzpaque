@@ -23,12 +23,9 @@ install()
             install "$dep"
         done < "$package_deps"
     fi
-    # install package
-    echo "Installing $package..."
-    local package_install="$package_dir/$package/install.sh"
-    if [ -f "$package_install" ]; then
-        echo 'source "'"$package_install"'" "'"$@"'"' >> ~/.bashrc && source ~/.bashrc
-    fi
+    # load package
+    source modules/load.sh "$package_dir/$package"
 }
+
 install "$package" "$@"
 unset -f install # remove install function
