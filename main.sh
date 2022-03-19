@@ -15,6 +15,9 @@ xzpaque()
         Pl)
             $load
         ;;
+        Pr)
+            rm -rf $HOME/.paque/packages/$args
+        ;;
         *)
             echo "Unknown command: $cmd"
             return 1
