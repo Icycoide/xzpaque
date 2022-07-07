@@ -3,8 +3,8 @@
 
 xzpaque()
 {
-    local install="source $HOME/.paque/modules/install.sh"
-    local load="source $HOME/.paque/modules/load.sh"
+    local install="source $HOME/.paque/xzpaque/modules/install.sh"
+    local load="source $HOME/.paque/xzpaque/modules/load.sh"
     local cmd="$1"; shift
     # set args to command args past the first
     local args="$@"
