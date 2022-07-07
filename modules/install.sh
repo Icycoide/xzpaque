@@ -24,7 +24,7 @@ install()
         done < "$package_deps"
     fi
     # load package
-    source modules/load.sh "$package_dir/$package"
+    source $HOME/.paque/xzpaque/modules/load.sh "$package_dir/$package"
 }
 
 install "$package" "$@"
