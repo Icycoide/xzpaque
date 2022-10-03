@@ -12,6 +12,7 @@ xzpaque()
             echo "╭─Package"
             read -p "╰" ipkg
             install() {
+	    local package="$1"; shift
             package_hub="https://github.com/Lintine/paque-packages/raw/main"
             package_dir="$HOME/.paque/packages"
             package_url="$ipkg_hub/$ipkg.tar.gz"
