@@ -2,15 +2,11 @@
 # quick install file
 echo "Installing Paqué..."
 mkdir -p "$HOME/.paque"
-mkdir -p "$HOME/.paque/packages"
+mkdir -p "$HOME/.paque/pkgs"
 # download paqué from the latest release on github.com/Lintine/xzpaque
 curl -sL "https://github.com/Lintine/xzpaque/releases/latest/download/xzpaque.tar.gz" | tar -x -z -C "$HOME/.paque"
-# add xzpaque to bashrc
-echo "Adding xzpaque to bashrc..."
-echo -e "source $HOME/.paque/xzpaque/main.sh\nxzpaque Pl all" >> "$HOME/.bashrc"
-# source bashrc
-echo "Sourcing bashrc..."
-source "$HOME/.bashrc"
+# add xzpaque to bashrc (nope
+# source bashrc (nope)
 choice() {
 	echo "Would you like to put an executable command for xzpaque in /usr/bin or /usr/local/bin?
 	1. /usr/bin
@@ -34,5 +30,7 @@ choice() {
 		;;
 	esac 
 }
+
+choice
 # done
 echo "Done!"
